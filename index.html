@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Processing Tool</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-magic"></i> AI Image Processing Tool</h1>
+            <p class="subtitle">Transform your images with advanced AI technology</p>
+        </header>
+
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Upload Your Image</h3>
+                        <p>Drag and drop an image here or click to browse</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <button class="browse-btn" onclick="document.getElementById('imageInput').click()">
+                            <i class="fas fa-folder-open"></i> Browse Files
+                        </button>
+                    </div>
+                </div>
+
+                <div class="image-preview" id="imagePreview" style="display: none;">
+                    <img id="previewImg" src="" alt="Preview">
+                    <div class="preview-actions">
+                        <button class="btn btn-secondary" onclick="clearImage()">
+                            <i class="fas fa-times"></i> Remove
+                        </button>
+                        <button class="btn btn-primary" onclick="processImage()" id="processBtn">
+                            <i class="fas fa-cogs"></i> Process Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="processing-section" id="processingSection" style="display: none;">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Processing your image...</p>
+                </div>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h3><i class="fas fa-check-circle"></i> Processing Complete</h3>
+                <div class="result-content">
+                    <div class="result-image">
+                        <img id="resultImg" src="" alt="Processed Result">
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn btn-success" onclick="downloadResult()">
+                            <i class="fas fa-download"></i> Download Result
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetTool()">
+                            <i class="fas fa-redo"></i> Process Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-content">
+                    <i class="fas fa-exclamation-triangle error-icon"></i>
+                    <h3>Processing Error</h3>
+                    <p id="errorMessage">Something went wrong. Please try again.</p>
+                    <button class="btn btn-secondary" onclick="resetTool()">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 AI Image Processing Tool. Powered by RapidAPI.</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+                    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
